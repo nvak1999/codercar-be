@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const mongooseURL =
   "mongodb+srv://khuong:Anhkhuong3004@cluster0.lqfqs7p.mongodb.net/car";
+
 const fs = require("fs");
 const csv = require("csvtojson");
 
@@ -65,27 +66,27 @@ carSchema.pre(/^find/, function (next) {
   next();
 });
 
-const createCar = async () => {
-  await mongoose.connect(mongooseURL);
-  let newData = await csv().fromFile("data.csv");
-  const Cars = mongoose.model("car", carSchema);
+// const createCar = async () => {
+//   await mongoose.connect(mongooseURL);
+//   let newData = await csv().fromFile("data.csv");
+//   const Cars = mongoose.model("car", carSchema);
 
-  //   newData = newData.map(async (e) => {
-  //     const newCar = new Cars({
-  //       make: e.Make,
-  //       model: e.Model,
-  //       release_date: e.Year,
-  //       transmission_type: e["Transmission Type"],
-  //       size: e["Vehicle Size"],
-  //       style: e["Vehicle Style"],
-  //       price: parseInt(e.MSRP),
-  //       isDeleted: false,
-  //     });
-  //     await newCar.save();
-  //   });
-  const myCar = await Cars.find({});
-  console.log(myCar);
-};
+//   //   newData = newData.map(async (e) => {
+//   //     const newCar = new Cars({
+//   //       make: e.Make,
+//   //       model: e.Model,
+//   //       release_date: e.Year,
+//   //       transmission_type: e["Transmission Type"],
+//   //       size: e["Vehicle Size"],
+//   //       style: e["Vehicle Style"],
+//   //       price: parseInt(e.MSRP),
+//   //       isDeleted: false,
+//   //     });
+//   //     await newCar.save();
+//   //   });
+//   const myCar = await Cars.find({});
+//   console.log(myCar);
+// };
 
 // createCar();
 
