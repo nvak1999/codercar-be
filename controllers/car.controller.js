@@ -50,8 +50,9 @@ carController.getCars = async (req, res, next) => {
   let end = page * limit;
   const filter = {};
   try {
-    let listCar = await Car.find(filter);
-    listCar = listCar.slice(start, end);
+    let listCar = await Car.findOne(filter)
+      .skip(limit * (page - 1))
+      .limit(limit);
     sendResponse(
       res,
       200,

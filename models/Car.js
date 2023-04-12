@@ -70,7 +70,6 @@ carSchema.pre(/^find/, function (next) {
 //   await mongoose.connect(mongooseURL);
 //   let newData = await csv().fromFile("data.csv");
 //   const Cars = mongoose.model("car", carSchema);
-
 //   //   newData = newData.map(async (e) => {
 //   //     const newCar = new Cars({
 //   //       make: e.Make,
