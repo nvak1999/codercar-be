@@ -50,7 +50,7 @@ carController.getCars = async (req, res, next) => {
   let end = page * limit;
   const filter = {};
   try {
-    let listCar = await Car.findOne(filter)
+    let listCar = await Car.find(filter)
       .skip(limit * (page - 1))
       .limit(limit);
     sendResponse(
