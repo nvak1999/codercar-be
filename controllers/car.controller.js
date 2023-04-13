@@ -81,8 +81,8 @@ carController.editCar = async (req, res, next) => {
       style,
     };
     const options = { new: true };
-    console.log(targetId);
     await Car.findByIdAndUpdate(req.params.id, updateInfo, options);
+    console.log();
     sendResponse(res, 200, true, updateInfo, null, "Update Car Successfully!");
   } catch (err) {
     next(err);
